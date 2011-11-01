@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("FluentJson")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("FluentJson.NET")]
+[assembly: AssemblyDescription("A Fluent JSON library for building Knockout view models (or any other JSON object) built on top of JSON.NET.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("FluentJson")]
-[assembly: AssemblyCopyright("Copyright © Microsoft 2011")]
+[assembly: AssemblyCompany("Paul Tyng")]
+[assembly: AssemblyProduct("FluentJson.NET")]
+[assembly: AssemblyCopyright("Copyright © Paul Tyng 2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

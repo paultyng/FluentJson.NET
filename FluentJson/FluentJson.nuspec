@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>fluentjson.net</id>
+    <version>$version$</version>
+    <title>FluentJSON.NET</title>
+    <authors>$author$</authors>
+    <owners>Paul Tyng</owners>
+      <licenseUrl>https://raw.github.com/paultyng/FluentJson.NET/master/license.txt</licenseUrl>
+    <projectUrl>http://github.com/paultyng/FluentJson.NET</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>Initial version.</releaseNotes>
+    <copyright>Copyright 2011</copyright>
+    <tags>Knockout JSON.NET JSON Knockoutjs</tags>
+  </metadata>
+</package>
