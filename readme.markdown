@@ -14,3 +14,7 @@ This would produce JSON similar to this:
     {"name":"value","childObject":{"childProperty":"value2"},"knockoutProperty":ko.observable(123)}
  
 The Knockout methods are added via extension methods and other things can easily extend as well.  Please feel free to comment / criticize.
+
+You can get the package with nuget:
+
+> PM> Install-Package fluentjson.net
