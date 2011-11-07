@@ -10,6 +10,26 @@ namespace FluentJson.Tests
     public class Knockout_Tests
     {
         [TestMethod]
+        public void ToViewModel_Simple_Anonymous()
+        {
+            var anon = new { a = 5, b = "test" };
+
+            var json = Knockout.ToViewModel(anon);
+
+            Assert.AreEqual("{\"a\":ko.observable(5),\"b\":ko.observable(\"test\")}", json.ToJson());
+        }
+
+        [TestMethod]
+        public void ToViewModel_Anonymous_With_Array()
+        {
+            var anon = new { a = 5, b = new int[] { 1, 2, 3} };
+
+            var json = Knockout.ToViewModel(anon);
+
+            Assert.AreEqual("{\"a\":ko.observable(5),\"b\":ko.observableArray([1,2,3])}", json.ToJson());
+        }
+
+        [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void AddObservableArray_ArgumentNullException_Test1()
         {

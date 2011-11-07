@@ -5,7 +5,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentJson", "FluentJson\Fl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentJson.Tests", "FluentJson.Tests\FluentJson.Tests.csproj", "{52C5CEAF-32E4-4521-AB61-2BA8BE6BB061}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4F49EC16-DB40-4E96-8B32-9E5948B425F2}"
+	ProjectSection(SolutionItems) = preProject
+		Coverage.testsettings = Coverage.testsettings
+		FluentJson.NET.vsmdi = FluentJson.NET.vsmdi
+		Local.testsettings = Local.testsettings
+	EndProjectSection
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = FluentJson.NET.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU

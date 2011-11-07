@@ -83,5 +83,17 @@ namespace FluentJson.Tests
 
             Assert.AreEqual("{\"name\":\"value\"}", actual);
         }
+
+        [TestMethod]
+        public void ToString_Test()
+        {
+            var json = JsonObject.Create();
+
+            json.AddProperty("name", "value");
+
+            var actual = ((IHtmlString)json).ToString();
+
+            Assert.AreEqual("{\"name\":\"value\"}", actual);
+        }
     }
 }

@@ -10,7 +10,7 @@ using System.IO;
 namespace FluentJson
 {
     [JsonConverter(typeof(JsonObject.Converter))]
-    public sealed class JsonObject : IHtmlString
+    public sealed class JsonObject : JsonValue
     {
         Dictionary<string, object> _properties = new Dictionary<string,object>();
         
@@ -26,8 +26,8 @@ namespace FluentJson
                 throw new NotImplementedException();
             }
         }
-        
-        private JsonObject()
+
+        private JsonObject() : base(t => ((JsonObject)t)._properties)
         {
         }
 
@@ -70,23 +70,6 @@ namespace FluentJson
         public static JsonObject Create()
         {
             return new JsonObject();
-        }
-
-        public string ToJson()
-        {
-            var sw = new StringWriter();
-            new JsonSerializer().Serialize(sw, _properties);
-            return sw.GetStringBuilder().ToString();
-        }
-
-        string IHtmlString.ToHtmlString()
-        {
-            return ToJson();
-        }
-
-        public override string ToString()
-        {
-            return ToJson();
         }
     }
 }
