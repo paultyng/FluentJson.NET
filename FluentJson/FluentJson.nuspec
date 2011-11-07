@@ -3,15 +3,15 @@
   <metadata>
     <id>fluentjson.net</id>
     <version>$version$</version>
-    <title>FluentJSON.NET</title>
+    <title>FluentJson.NET</title>
     <authors>$author$</authors>
     <owners>Paul Tyng</owners>
       <licenseUrl>https://raw.github.com/paultyng/FluentJson.NET/master/license.txt</licenseUrl>
     <projectUrl>http://github.com/paultyng/FluentJson.NET</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Initial version.</releaseNotes>
+    <releaseNotes>Added Knockout.ToViewModel, Changed to SemVer versioning.</releaseNotes>
     <copyright>Copyright 2011</copyright>
-    <tags>Knockout JSON.NET JSON Knockoutjs</tags>
+    <tags>Knockout Json.NET Json Knockoutjs</tags>
   </metadata>
 </package>
