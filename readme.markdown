@@ -20,6 +20,10 @@ The Knockout methods are added via extension methods and other things can easily
 Would produce:
 
     {"name1":ko.observable("value1"),"name2":ko.observable(2)}
+    
+There is also a simplified way to spit out your entire model as a Knockout ViewModel: 
+
+    @Knockout.ToViewModel(Model) 
 
 You can get the package with nuget:
 
