@@ -3,12 +3,58 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 
 namespace FluentJson.Tests
 {
     [TestClass]
     public class Knockout_Tests
     {
+        public class SimpleClass
+        {
+            public virtual int A { get; set; }
+            public virtual string B { get; set; }
+        }
+
+        public class NestedClass
+        {
+            public virtual bool C { get; set; }
+            public virtual SimpleClass Child { get; set; }
+        }
+
+        [TestMethod]
+        public void ToViewModel_Nested_Class()
+        {
+            var model = new NestedClass { Child = new SimpleClass { A = 5, B = "test" }, C = true };
+
+            var json = Knockout.ToViewModel(model);
+
+            Assert.AreEqual("{\"C\":ko.observable(true),\"Child\":{\"A\":ko.observable(5),\"B\":ko.observable(\"test\")}}", json.ToJson());
+        }
+
+        [TestMethod]
+        public void ToViewModel_Simple_Class()
+        {
+            var model = new SimpleClass { A = 5, B = "test" };
+
+            var json = Knockout.ToViewModel(model);
+
+            Assert.AreEqual("{\"A\":ko.observable(5),\"B\":ko.observable(\"test\")}", json.ToJson());
+        }
+
+        [TestMethod]
+        public void ToViewModel_Mock_Property_Override_Moq()
+        {
+            var model = new Mock<SimpleClass>();
+
+            model.Setup(m => m.A).Returns(5);
+            model.Setup(m => m.B).Returns("test");
+
+            var json = Knockout.ToViewModel(model.Object);
+
+            Assert.AreEqual("{\"A\":ko.observable(5),\"B\":ko.observable(\"test\")}", json.ToJson());
+        }
+
         [TestMethod]
         public void ToViewModel_Simple_Anonymous()
         {

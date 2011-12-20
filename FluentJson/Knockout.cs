@@ -24,6 +24,11 @@ namespace FluentJson
 
         public static JsonValue ToViewModel(Type modelType, IContractResolver resolver, object model)
         {
+            return ToViewModelInternal(new Stack<object>(), modelType, resolver, model);
+        }
+
+        static JsonValue ToViewModelInternal(Stack<object> visited, Type modelType, IContractResolver resolver, object model)
+        {
             if (JsonValue.IsPrimitive(resolver, modelType))
             {
                 return new JsonValue(resolver, model);
@@ -38,6 +43,7 @@ namespace FluentJson
                 foreach (var p in metadata.Properties)
                 {
                     var vdi = viewData.GetViewDataInfo(p.PropertyName);
+
                     //not using eval so it doesn't convert to string...
                     var value = vdi.PropertyDescriptor.GetValue(viewData.Model);
 
@@ -52,7 +58,12 @@ namespace FluentJson
                     }
                     else
                     {
-                        json.AddProperty(p.PropertyName, ToViewModel(p.ModelType, resolver, value));
+                        if (!visited.Contains(value))
+                        {
+                            visited.Push(value);
+                            json.AddProperty(p.PropertyName, ToViewModelInternal(visited, p.ModelType, resolver, value));
+                            visited.Pop();
+                        }
                     }
                 }
 
