@@ -21,7 +21,7 @@ Would produce:
 
     {"name1":ko.observable("value1"),"name2":ko.observable(2)}
 
-You can get the package with nuget:
+You can get the package from the [NuGet Gallery](http://nuget.org/packages/fluentjson.net):
 
 > PM> Install-Package fluentjson.net
 
